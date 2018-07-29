@@ -5,6 +5,8 @@ import {
   View,
   Image,
 } from 'react-native';
+import RF from "react-native-responsive-fontsize"
+import Autolink from 'react-native-autolink';
 
 export default class CardTitle extends Component {
   render() {
@@ -34,10 +36,10 @@ export default class CardTitle extends Component {
           }
           <View style={styles.cardTitleTextCont}>
             {this.props.title !== undefined &&
-              <Text style={this.props.avatarSource === undefined ? titleStyle : [titleStyle, { fontSize: 14 }]}>{this.props.title}</Text>
+              <Autolink style={this.props.avatarSource === undefined ? titleStyle : [titleStyle, { fontSize: 14 }]} text = {this.props.title}/>
             }
             {this.props.subtitle !== undefined &&
-              <Text style={subtitleStyle}>{this.props.subtitle}</Text>
+              <Autolink style={subtitleStyle} text = {this.props.subtitle}/>
             }
           </View>
         </View>
@@ -84,10 +86,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   titleText: {
-    fontSize: 24,
+    fontSize: RF(3),
   },
   subtitleText: {
-    fontSize: 14,
+    fontSize: RF(2),
     color: 'rgba(0 ,0 ,0 , 0.38)',
   },
   avatarStyle: {
